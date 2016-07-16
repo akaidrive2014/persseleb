@@ -1,0 +1,38 @@
+HTTrack3.48-21+htsswf+htsjava launched on Tue, 12 Jul 2016 23:43:32 at http://trendingtemplates.com/demos/techmag/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://trendingtemplates.com/demos/techmag/index.html -O1 "E:\DESIGN\WEBSITE\HTML\techmag" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+23:43:34	Warning: 	Note: due to trendingtemplates.com remote robots.txt rules, links beginning with these path will be forbidden: /wp-admin/ (see in the options to disable this)
+23:49:06	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/index-1.html (from trendingtemplates.com/demos/techmag/index.html)
+23:53:55	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_05.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:08	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_08.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:08	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_12.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:10	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_14.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:12	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_15.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:12	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/mini_widget_03.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:22	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/mini_widget_05.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:22	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/big_news_01.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:27	Error: 	"Not Found" (404) at link trendingtemplates.com/demos/techmag/author.html (from trendingtemplates.com/demos/techmag/index.html)
+23:54:27	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/big_news_03.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:29	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/news_02.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:30	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/js/bootstrap.js (from trendingtemplates.com/demos/techmag/index.html)
+23:54:33	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/fonts/fontawesome-webfont.eot? (from trendingtemplates.com/demos/techmag/css/font-awesome.min.css)
+23:54:45	Warning: 	File not parsed, looks like binary: trendingtemplates.com/demos/techmag/fonts/fontawesome-webfont.woff2?v=4.5.0
+23:54:45	Warning: 	File not parsed, looks like binary: trendingtemplates.com/demos/techmag/fonts/fontawesome-webfont.ttf?v=4.5.0
+23:54:45	Warning: 	File not parsed, looks like binary: trendingtemplates.com/demos/techmag/fonts/glyphicons-halflings-regular.woff2
+23:54:45	Warning: 	File not parsed, looks like binary: trendingtemplates.com/demos/techmag/fonts/glyphicons-halflings-regular.ttf
+23:54:45	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/index-1.html (from trendingtemplates.com/demos/techmag/index.html)
+23:54:45	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/review_mini_02.jpg (from trendingtemplates.com/demos/techmag/single-review.html)
+23:54:50	Error: 	"Not Found" (404) at link trendingtemplates.com/demos/techmag/upload/team_01.jpg (from trendingtemplates.com/demos/techmag/single-forum.html)
+23:54:50	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/review_09.jpg (from trendingtemplates.com/demos/techmag/reviews.html)
+23:54:54	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/widget_08.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:54:54	Warning: 	Retry after error -4 (No data (connection closed)) at link trendingtemplates.com/demos/techmag/upload/mini_widget_05.jpg (from trendingtemplates.com/demos/techmag/index.html)
+23:55:21	Error: 	"No data (connection closed)" (-4) after 2 retries at link trendingtemplates.com/demos/techmag/index-1.html (from trendingtemplates.com/demos/techmag/index.html)
+23:55:41	Error: 	"No data (connection closed)" (-4) after 2 retries at link trendingtemplates.com/demos/techmag/upload/widget_08.jpg (from trendingtemplates.com/demos/techmag/index.html)
+
+HTTrack Website Copier/3.48-21 mirror complete in 12 minutes 9 seconds : 157 links scanned, 134 files written (19405494 bytes overall) [19105691 bytes received at 26208 bytes/sec], 465946 bytes transferred using HTTP compression in 9 files, ratio 21%, 2.0 requests per connection
+(4 errors, 23 warnings, 0 messages)
