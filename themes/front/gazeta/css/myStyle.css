@@ -1,0 +1,14 @@
+.loadMore{
+    background:url("../images/LoadMore.png") no-repeat;
+    width:223px;
+    height: 24px;
+    cursor: pointer;
+    margin:auto;
+    margin-bottom: 15px;
+}
+.sw-inner{
+
+    border-left: none;
+    padding:25px 0 30px 0;
+
+}
