@@ -61,7 +61,7 @@ class SiteController extends FrontController
 		*/
 		//home/landing page
 		if(empty($slug)){
-			$this->Blog();
+			$this->home();
 			exit;
 		}
         if($slug=='contact'){
@@ -285,5 +285,9 @@ class SiteController extends FrontController
 				exit(CActiveForm::validate($model));
 			}
 		}
+	}
+
+	public function home(){
+		$this->render('index');
 	}
 }
