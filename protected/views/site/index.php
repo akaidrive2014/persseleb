@@ -8,7 +8,7 @@
             <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h1.jpg" alt="">
             <div class="hover-box">
                 <div class="inner-hover">
-                    <a class="category-post travel" href="travel.html">Travel</a>
+                    <a class="category-post travel" href="travel.html">Travelx</a>
                     <h2><a href="single-post.html">Lorem ipsum dolor sit amet, consectetuer</a></h2>
                     <ul class="post-tags">
                         <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
@@ -20,79 +20,57 @@
         </div>
 
         <div class="image-slider snd-size">
-            <span class="top-stories">TOP STORIES</span>
+            <?php /*<span class="top-stories">TOP STORIES</span>*/ ?>
+            <?php
+            $getNewsSliding = Tools::getNewsSliding();
+            if(!empty($getNewsSliding)){
+            ?>
             <ul class="bxslider">
+                <?php foreach($getNewsSliding as $news){?>
                 <li>
                     <div class="news-post image-post">
-                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h2.jpg" alt="">
+                        <img src="<?php echo $this -> baseUrl(); ?>/media/uploads/images/<?php echo $news->news_thumb_image;?>" alt="<?php echo $news->news_title;?>">
                         <div class="hover-box">
                             <div class="inner-hover">
-                                <a class="category-post world" href="world.html">Business</a>
-                                <h2><a href="single-post.html">Franca do të bashkëpunojë me Kosovën në ekonomi. </a></h2>
+                                <?php /*<a class="category-post world" href="world.html">Business</a>*/ ?>
+                                <h2><a href="<?php echo $news->url_link;?>"><?php echo $news->news_title;?></a></h2>
                                 <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                    <li><i class="fa fa-eye"></i>872</li>
+                                    <li><i class="fa fa-clock-o"></i><?php echo date("d F Y",strtotime($news->news_date));?></li>
+                                    <?php /*<li><i class="fa fa-eye"></i>872</li>*/ ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="news-post image-post">
-                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h7.jpg" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post sport" href="sport.html">Sport</a>
-                                <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                    <li><i class="fa fa-eye"></i>872</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="news-post image-post">
-                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h4.jpg" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post sport" href="sport.html">sport</a>
-                                <h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                    <li><i class="fa fa-eye"></i>872</li>
-                                </ul>
-                                <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <?php } ?>
             </ul>
+            <?php } ?>
         </div>
 
-        <div class="news-post image-post">
-            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h3.jpg" alt="">
-            <div class="hover-box">
-                <div class="inner-hover">
-                    <a class="category-post food" href="food.html">food &amp; Health</a>
-                    <h2><a href="single-post.html">Nullam malesuada erat ut turpis.</a></h2>
-                    <ul class="post-tags">
-                        <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-                        <li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
-                    </ul>
-                    <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
+        <?php
+        $getNewsForBanners = Tools::getNewsForBanners();
+        if(!empty($getNewsForBanners)) {
+            foreach ($getNewsForBanners as $news) {
+                ?>
+                <div class="news-post image-post">
+                    <img src="<?php echo $this->baseUrl(); ?>/media/uploads/images/<?php echo $news->news_thumb_image;?>" alt="<?php echo $news->news_title;?>">
+
+                    <div class="hover-box">
+                        <div class="inner-hover">
+                            <a class="category-post food" href="food.html">food &amp; Health</a>
+
+                            <h2><a href="<?php echo $news->url_link;?>"><?php echo $news->news_title;?></a></h2>
+                            <ul class="post-tags">
+                                <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
+                                <li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
+                            </ul>
+                            <p><?php echo substr($news->news_content,0,73);?></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="news-post image-post">
+            <?php }
+        }?>
+        <?php /*<div class="news-post image-post">
             <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/h1.jpg" alt="">
             <div class="hover-box">
                 <div class="inner-hover">
@@ -180,7 +158,7 @@
                     <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
                 </div>
             </div>
-        </div>
+        </div>*/ ?>
 
     </div>
 
