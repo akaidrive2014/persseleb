@@ -28,5 +28,25 @@ Class Tools{
 			)
 		);
 	}
+
+	public static function getNewsSliding(){
+		return SBNews::model()->findAll(
+			array(
+				'condition'=>'issliding=:value',
+				'order'=>'news_id ASC',
+				'params'=>array(':value'=>1)
+			)
+		);
+	}
+	public static function getNewsForBanners(){
+		return SBNews::model()->findAll(
+			array(
+				'condition'=>'topnewsbanner=:value',
+				'order'=>'topnewsbanner ASC',
+				'limit'=>7,
+				'params'=>array(':value'=>1)
+			)
+		);
+	}
 	
 }

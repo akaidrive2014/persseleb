@@ -42,6 +42,32 @@ $this->avoidDoubleLoadJS();
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	<div class="form-group">
+		<fieldset>
+			<legend>Choose Position<span class="required">*</span>
+				<div id="SBNews_category_em_" class="errorMessage"></div>
+			</legend>
+			<div class="col-md-3">
+				<?php echo $form->checkBox($model,'issliding',array('style'=>'float:left;')); ?>
+				&nbsp;
+				<?php echo $form->label($model,'issliding',array('style'=>'float:left;')); ?>
+				Dimensions 586px × 490px
+			</div>
+			<div class="col-md-3">
+				<?php echo $form->checkBox($model,'topnewsbanner',array('style'=>'float:left;')); ?>
+				&nbsp;
+				<?php echo $form->label($model,'topnewsbanner',array('style'=>'float:left;')); ?>
+				Dimensions 293px × 245px
+			</div>
+			<div class="col-md-3">
+				<?php echo $form->checkBox($model,'isfeatured',array('style'=>'float:left;')); ?>
+				&nbsp;
+				<?php echo $form->label($model,'isfeatured',array('style'=>'float:left;')); ?>
+				Dimensions 293px × 245px
+			</div>
+		</fieldset>
+
+	</div>
 	<div class="row">
 		<fieldset>
 			<legend>Choose Categories<span class="required">*</span>
@@ -113,7 +139,7 @@ $this->avoidDoubleLoadJS();
 					<?php
 					if(!empty($model->news_thumb_image)){
 					?>	
-					<img width="135" src="<?php echo $this->baseUrl();?>/assets/uploads/images/<?php echo $model->news_thumb_image;?>" style="float:right;">
+					<img width="135" src="<?php echo $this->baseUrl();?>/media/uploads/images/<?php echo $model->news_thumb_image;?>" style="float:right;">
 					<?php }?>
 				</span>
 				<div class="clearfix"></div>
@@ -151,7 +177,7 @@ $this->avoidDoubleLoadJS();
 							foreach($IMAGES as $index=>$image){?>
 								<div id="data_<?php echo $index;?>" style="float:right;">          
 									<input type="hidden" value="<?php echo $image->image;?>" name="SBNews[gallery][image][]">                 
-									<img width="135" src="<?php echo $this->baseUrl();?>/assets/uploads/images/thumbnail/<?php echo $image->image;?>" class="image-position">                 
+									<img width="135" src="<?php echo $this->baseUrl();?>/media/uploads/images/thumbnail/<?php echo $image->image;?>" class="image-position">
 									<?php /*<input placeholder="Image Title" class="form-control image-title" type="text" name="SBNews[gallery][title][]">*/ ?> <div class="clearfix"></div>                              
 									<span title="remove image" def="<?php echo $index;?>" class="delete_image delete-button"> <i class="glyphicon glyphicon-trash"></i> Remove </span>                
 									<div class="clearfix"> </div><br>
@@ -325,14 +351,14 @@ $(document).ready(function(){
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/assets/upload.php';
+                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/media/upload.php';
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo('#files');
-                $(".view-logo").html('<img style="float:right;" width="135" src="<?php echo $this->baseUrl();?>/assets/uploads/images/'+file.name+'">');
+                $(".view-logo").html('<img style="float:right;" width="135" src="<?php echo $this->baseUrl();?>/media/uploads/images/'+file.name+'">');
             	$("#SBNews_news_thumb_image.form-control").val(file.name) ;
             });
         },
@@ -348,7 +374,7 @@ $(document).ready(function(){
         
     //gallery
     var url2 = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/assets/upload.php?width=162&height=162&crop=true';
+                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/media/upload.php?width=162&height=162&crop=true';
     var i = 50000000;
     $('#fileupload2').fileupload({
         url: url2,
@@ -359,7 +385,7 @@ $(document).ready(function(){
                 $('<p/>').text(file.name).appendTo('#files2');
                 $(".view-logo2").append('<div id="data_'+i+'" style="float:right;"> \
                 <input type="hidden" name="SBNews[gallery][image][]" value="'+file.name+'"> \
-                <img width="135" class="image-position" src="<?php echo $this->baseUrl();?>/assets/uploads/images/thumbnail/'+file.name+'"> \
+                <img width="135" class="image-position" src="<?php echo $this->baseUrl();?>/media/uploads/images/thumbnail/'+file.name+'"> \
                 <!--<input placeholder="Image Title" class="form-control image-title" type="text" name="SBNews[gallery][title][]">-->\
                 \
                 <div class="clearfix"></div><span class="delete_image delete-button" def="'+i+'"> <i class="glyphicon glyphicon-trash"></i> Remove </span>\

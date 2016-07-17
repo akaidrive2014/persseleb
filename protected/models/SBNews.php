@@ -40,7 +40,7 @@ class SBNews extends CActiveRecord
 		return array(
 			array('categories,news_title, news_date, news_content', 'required'),
 			//array('news_title','unique'),
-			array('seo_title,seo_keywords,seo_description,gallery,type,source,url','safe'),
+			array('seo_title,seo_keywords,seo_description,gallery,type,source,url,issliding,topnewsbanner,isfeatured','safe'),
 			//array('category_id', 'numerical', 'integerOnly'=>true),
 			array('news_title', 'length', 'max'=>100),
 			array('news_thumb_image, original_url,category_id,topic_category,news_image_url,hits,source', 'safe'),
