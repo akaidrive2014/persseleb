@@ -60,7 +60,7 @@
 				<span class="view-logo">
 					<?php
 					if(!empty($config->logo)){
-					?><img width="135" src="<?php echo $this -> baseUrl(); ?>/assets/uploads/images/<?php echo $config -> logo; ?>" style="float:right;">
+					?><img width="135" src="<?php echo $this -> baseUrl(); ?>/media/uploads/images/<?php echo $config -> logo; ?>" style="float:right;">
 					<?php } ?></span>
 				<?php echo $form -> error($config, 'logo'); ?>
 			</div>
@@ -75,7 +75,7 @@
 				<span class="view-favicon">
 					<?php
 					if(!empty($config->favicon)){
-					?><img width="35" src="<?php echo $this -> baseUrl(); ?>/assets/uploads/images/<?php echo $config -> favicon; ?>" style="float:right;">
+					?><img width="35" src="<?php echo $this -> baseUrl(); ?>/media/uploads/images/<?php echo $config -> favicon; ?>" style="float:right;">
 					<?php } ?></span>
 				<div class="clearfix"></div>
 				<br>
@@ -202,14 +202,14 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/assets/upload.php';
+                '//jquery-file-upload.appspot.com/' : '<?php echo $this->baseUrl();?>/media/upload.php';
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo('#files');
-                $(".view-logo").html('<img style="float:right;" width="135" src="<?php echo $this->baseUrl();?>/assets/uploads/images/'+file.name+'">');
+                $(".view-logo").html('<img style="float:right;" width="135" src="<?php echo $this->baseUrl();?>/media/uploads/images/'+file.name+'">');
             	$("#Config_logo.form-control").val(file.name) ;
             });
         },
@@ -230,7 +230,7 @@ $(function () {
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo('#files');
-                $(".view-favicon").html('<img style="float:right;" width="35" src="<?php echo $this->baseUrl();?>/assets/uploads/images/'+file.name+'">');
+                $(".view-favicon").html('<img style="float:right;" width="35" src="<?php echo $this->baseUrl();?>/media/uploads/images/'+file.name+'">');
             	$("#Config_favicon.form-control").val(file.name) ;
             });
         },
