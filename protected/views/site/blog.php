@@ -1,48 +1,524 @@
-<style>
-	.page-nav ul li:first-child,.page-nav ul li:last-child{
-		display:none;
-	}
-</style>
-<div class="col-md-8 blog-single">
-	<?php if(!empty($Posts)){?>
-	<h3>
-		<?php $Top = $this->getNewsTopPopular();?>
-		<a href="<?php echo $Top->url_link;?>" title="<?php echo $Top->news_title;?>"><?php echo $Top->news_title;?></a>
-	</h3>
-	<div class="related-posts related-posts-cat">
-		<h5>News Today<span><i class="fa fa-angle-down"></i></span></h5>
-		<ul>
-			<?php foreach($Posts as $post){?>
-			<li>
-				<?php /*
-				<div class="col-md-3">
-					<div class="rp-date">
-						<span><?php echo date("F",strtotime($post->news_date));?></span>
-						<?php echo date("d",strtotime($post->news_date));?>
-						<span><em>/</em> <?php echo date("Y",strtotime($post->news_date));?></span>
-					</div>
-				</div>*/ ?>
-				<div class="col-md-12"><?php /*9*/ ?>
-					<a href="<?php echo $post->url_link;?>">
-						<?php if(!empty($post->news_image_url)){?>
-							<img src="<?php echo $post->news_image_url;?>" class="img-responsive" alt=""/>
-						<?php }else{ ?>
-							<img src="<?php echo $this -> getBaseTheme('front', 'gazeta'); ?>img/football.jpg" class="img-responsive" alt=""/>
-						<?php } ?>
-					</a>
-					<div class="rp-inner">
-						<?php /*<span class="rp-cat">Uncategorized</span>*/ ?>
-						<h4 style="margin-bottom:0px;"><a href="<?php echo $post->url_link;?>"><?php echo $post->news_title;?></a></h4>
-						<p><?php //echo substr(strip_tags($post->news_content),0,90);?></p>
-						<a href="<?php echo $post->url_link;?>" class="rp-more">Read more <em>&#8594;</em></a>
-					</div>
-				</div>
-			</li>
-			<?php } ?>
-		</ul>
-		<img src="<?php echo $this -> getBaseTheme('front', 'gazeta'); ?>img/icon-loading-large.png" class="img-responsive loader" alt="" style="display:none;width: 33px; margin: auto auto 30px;" />
-		<div class="loadMore" title="Click to see other news"></div>
-	</div>
-	<?php } ?>
-</div>
-<div id="sumPageButtons" style="display: none"><?php echo $Pages->pageCount;?></div>
+<!-- block-wrapper-section
+================================================== -->
+<section class="block-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+
+                <!-- block content -->
+                <div class="block-content">
+
+                    <!-- grid box -->
+                    <?php if(!empty($Posts)){?>
+                    <div class="grid-box">
+                        <div class="title-section">
+                            <h1><span class="world">World</span></h1>
+                        </div>
+                        <div class="row">
+                        <?php foreach($Posts as $post){?>
+                            <div class="col-md-6">
+                                <div class="news-post standard-post2">
+                                    <div class="post-gallery">
+                                        <?php if(!empty($post->news_image_url)){?>
+                                            <img src="<?php echo $post->news_image_url;?>" class="img-responsive" alt=""/>
+                                        <?php }else{ ?>
+                                            <img src="<?php echo $this -> getBaseTheme('front', 'gazeta'); ?>img/football.jpg" class="img-responsive" alt=""/>
+                                        <?php } ?>
+                                        <a class="category-post world" href="world.html">Business</a>
+                                    </div>
+                                    <div class="post-title">
+                                        <h2><a href="<?php echo $post->url_link;?>" title="<?php echo ($post->news_title);?>"><?php echo ($post->news_title);?></a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i><?php echo date("d F Y",strtotime($post->news_date));?></li>
+                                            <?php /*<li><i class="fa fa-eye"></i><?php echo $post->hits;?></li>*/ ?>
+                                        </ul>
+                                    </div>
+                                    <div class="post-content">
+                                        <p><?php echo substr(strip_tags($post->news_content),0,200);?></p>
+                                        <a href="<?php echo $post->url_link;?>" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <!-- End grid box -->
+                    <!-- google addsense -->
+                    <?php /*<div class="advertisement">
+                        <div class="desktop-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/728x90-white.jpg" alt="">
+                        </div>
+                        <div class="tablet-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/468x60-white.jpg" alt="">
+                        </div>
+                        <div class="mobile-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/300x250.jpg" alt="">
+                        </div>
+                    </div>*/ ?>
+                    <!-- End google addsense -->
+                    <!-- grid box -->
+                    <?php /*<div class="grid-box">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="news-post standard-post2">
+                                    <div class="post-gallery">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im11.jpg" alt="">
+                                        <a class="category-post world" href="world.html">Business</a>
+                                    </div>
+                                    <div class="post-title">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                                        <a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="news-post standard-post2">
+                                    <div class="post-gallery">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im12.jpg" alt="">
+                                        <a class="category-post world" href="world.html">Lifestyle</a>
+                                    </div>
+                                    <div class="post-title">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                                        <a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="news-post standard-post2">
+                                    <div class="post-gallery">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im13.jpg" alt="">
+                                        <a class="category-post world" href="world.html">Trends</a>
+                                    </div>
+                                    <div class="post-title">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                                        <a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="news-post standard-post2">
+                                    <div class="post-gallery">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im14.jpg" alt="">
+                                        <a class="category-post world" href="world.html">Business</a>
+                                    </div>
+                                    <div class="post-title">
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                    </div>
+                                    <div class="post-content">
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                                        <a href="single-post.html" class="read-more-button"><i class="fa fa-arrow-circle-right"></i>Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>*/ ?>
+                    <!-- End grid box -->
+                    <!-- pagination box -->
+                    <?php if(count($Posts)>12){?>
+                        <div class="pagination-box">
+                            <center>
+                                <?php
+                                /*untuk menampilkan link paging data*/
+                                $this->widget('CLinkPager', array(
+                                    'header'=>'',
+                                    //'id'=>'pagination',
+                                    'htmlOptions'=>array('id'=>'','class'=>'pagination-list'),
+                                    'nextPageCssClass'=>false,
+                                    'selectedPageCssClass'=>'current',
+                                    'nextPageLabel'=>'Next >',
+                                    'prevPageLabel'=>'< Prev',
+                                    'maxButtonCount'=>5,/*maksimal tombol yg ditampilkan*/
+                                    'pages' => $Pages,
+                                )); ?>
+                            </center>
+                        </div>
+                    <?php } ?>
+                    <!-- End Pagination box -->
+                </div>
+                <!-- End block content -->
+            </div>
+            <div class="col-sm-4">
+
+                <!-- sidebar -->
+                <div class="sidebar">
+
+                    <div class="widget social-widget">
+                        <div class="title-section">
+                            <h1><span>Stay Connected</span></h1>
+                        </div>
+                        <ul class="social-share">
+                            <li>
+                                <a href="#" class="rss"><i class="fa fa-rss"></i></a>
+                                <span class="number">9,455</span>
+                                <span>Subscribers</span>
+                            </li>
+                            <li>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <span class="number">56,743</span>
+                                <span>Fans</span>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <span class="number">43,501</span>
+                                <span>Followers</span>
+                            </li>
+                            <li>
+                                <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                                <span class="number">35,003</span>
+                                <span>Followers</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget features-slide-widget">
+                        <div class="title-section">
+                            <h1><span>Featured Posts</span></h1>
+                        </div>
+                        <div class="image-post-slider">
+                            <ul class="bxslider">
+                                <li>
+                                    <div class="news-post image-post2">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im3.jpg" alt="">
+                                        <div class="hover-box">
+                                            <div class="inner-hover">
+                                                <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                                <ul class="post-tags">
+                                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                                    <li><i class="fa fa-eye"></i>872</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="news-post image-post2">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im1.jpg" alt="">
+                                        <div class="hover-box">
+                                            <div class="inner-hover">
+                                                <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                                <ul class="post-tags">
+                                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                                    <li><i class="fa fa-eye"></i>872</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="news-post image-post2">
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/im2.jpg" alt="">
+                                        <div class="hover-box">
+                                            <div class="inner-hover">
+                                                <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                                <ul class="post-tags">
+                                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                                    <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                                    <li><i class="fa fa-eye"></i>872</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="widget tab-posts-widget">
+
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="active">
+                                <a href="#option1" data-toggle="tab">Popular</a>
+                            </li>
+                            <li>
+                                <a href="#option2" data-toggle="tab">Recent</a>
+                            </li>
+                            <li>
+                                <a href="#option3" data-toggle="tab">Top Reviews</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="option1">
+                                <ul class="list-posts">
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw1.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw2.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Sed arcu. Cras consequat. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw3.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw4.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw5.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="option2">
+                                <ul class="list-posts">
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw3.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw4.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw5.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw1.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw2.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="option3">
+                                <ul class="list-posts">
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw4.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Donec consectetuer ligula vulputate sem tristique cursus. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw1.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw3.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus.  </a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw2.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/news-posts/listw5.jpg" alt="">
+                                        <div class="post-content">
+                                            <h2><a href="single-post.html">Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</a></h2>
+                                            <ul class="post-tags">
+                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget post-widget">
+                        <div class="title-section">
+                            <h1><span>Featured Video</span></h1>
+                        </div>
+                        <div class="news-post video-post">
+                            <img alt="" src="upload/news-posts/video-sidebar.jpg">
+                            <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+                            <div class="hover-box">
+                                <h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. </a></h2>
+                                <ul class="post-tags">
+                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis. </p>
+                    </div>
+
+                    <div class="widget subscribe-widget">
+                        <form class="subscribe-form">
+                            <h1>Subscribe to RSS Feeds</h1>
+                            <input type="text" name="sumbscribe" id="subscribe" placeholder="Email"/>
+                            <button id="submit-subscribe">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                            <p>Get all latest content delivered to your email a few times a month.</p>
+                        </form>
+                    </div>
+
+                    <div class="widget tags-widget">
+
+                        <div class="title-section">
+                            <h1><span>Popular Tags</span></h1>
+                        </div>
+
+                        <ul class="tag-list">
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Politics</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Videos</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">World</a></li>
+                            <li><a href="#">Music</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="advertisement">
+                        <div class="desktop-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/300x250.jpg" alt="">
+                        </div>
+                        <div class="tablet-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/200x200.jpg" alt="">
+                        </div>
+                        <div class="mobile-advert">
+                            <span>Advertisement</span>
+                            <img src="<?php echo $this -> baseUrl(); ?>/themes/front/default/upload/addsense/300x250.jpg" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End sidebar -->
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- End block-wrapper-section -->

@@ -10,7 +10,7 @@ function getNewsByCategoryID($category_id) {
 function getCategoryNews() {
 	$ParentCategories = SBNewsCategory::model() -> findAll(array('order' => 'category_name ASC'));
 	if (!empty($ParentCategories)) {
-		$menuCategory = "<ul class=\"sub-menu\">";
+		$menuCategory = "<ul class=\"nav navbar-nav navbar-left\">";
 		foreach ($ParentCategories as $menuu) {
 			$categoryID=getNewsByCategoryID($menuu -> category_id);	
 			if (!empty($categoryID)) {
@@ -31,9 +31,9 @@ function get_menu($data, $parent = 0) {
 	$tab = str_repeat(" ", $i);
 	if (!empty($data[$parent])) {
 		if (empty($parent)) {
-			$html = "$tab<ul>";
+			$html = "$tab<ul class=\"nav navbar-nav navbar-left\">";
 		} else {
-			$html = "$tab<ul>";
+			$html = "$tab<ul class=\"nav navbar-nav navbar-left\">";
 		}
 		$i++;
 		$number = 1;

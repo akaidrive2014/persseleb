@@ -1,6 +1,6 @@
 <?php
 Class FrontController extends Controller{
-    public $layout = "gazeta";
+    public $layout = "default";
 	public $Website;
 	
 	public function init(){
